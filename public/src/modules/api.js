@@ -7,6 +7,7 @@ import { confirm } from 'bootbox';
 
 const baseUrl = config.relative_path + '/api/v3';
 
+
 async function call(options, callback) {
 	options.url = options.url.startsWith('/api') ?
 		config.relative_path + options.url :
