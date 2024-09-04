@@ -67,7 +67,7 @@ async function xhr(options) {
 	const isJSON = contentType && contentType.startsWith('application/json');
 
 	let response;
-	console.log('Tin Chi Lo')
+	console.log('Tin Chi Lo');
 	if (options.method !== 'HEAD') {
 		response = isJSON ? await res.json() : await res.text();
 	}
