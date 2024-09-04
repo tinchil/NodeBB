@@ -71,7 +71,7 @@ async function xhr(options) {
 		response = isJSON ? await res.json() : await res.text();
 	}
 
-	throwing_errors(res);
+	throwing_errors(res, isJSON, response);
 
 	return isJSON && response && response.hasOwnProperty('status') && response.hasOwnProperty('response') ?
 		response.response :
