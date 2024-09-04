@@ -71,20 +71,16 @@ async function xhr(options) {
 		response = isJSON ? await res.json() : await res.text();
 	}
 
-	throwing_errors(res, isJSON, response);
-
-	return isJSON && response && response.hasOwnProperty('status') && response.hasOwnProperty('response') ?
-		response.response :
-		response;
-}
-
-function throwing_errors(res) {
 	if (!res.ok) {
 		if (response) {
 			throw new Error(isJSON ? response.status.message : response);
 		}
 		throw new Error(res.statusText);
 	}
+
+	return isJSON && response && response.hasOwnProperty('status') && response.hasOwnProperty('response') ?
+		response.response :
+		response;
 }
 
 export function get(route, data, onSuccess) {
