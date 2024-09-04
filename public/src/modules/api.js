@@ -67,12 +67,8 @@ async function xhr(options) {
 	const isJSON = contentType && contentType.startsWith('application/json');
 
 	let response;
-	if (options.method !== 'HEAD') {
-		if (isJSON) {
-			response = await res.json();
-		} else {
-			response = await res.text();
-		}
+	if(options.method !== 'HEAD'){
+		response = isJSON ? await res.json() : await res.text();
 	}
 
 	if (!res.ok) {
